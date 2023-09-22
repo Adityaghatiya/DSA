@@ -1,0 +1,32 @@
+
+class Solution{
+
+    // arr: input array
+    // n: size of array
+    //Function to find the sum of contiguous subarray with maximum sum.
+    long maxSubarraySum(int arr[], int n){
+        
+        // Your code here
+        int max=Integer.MIN_VALUE;
+        
+        int max_endpoint=0;
+        
+        for(int i=0;i<n;i++)
+        {
+            max_endpoint=max_endpoint+arr[i];
+            
+            if(max<max_endpoint)
+            {
+                max=max_endpoint;
+                
+            }
+            if(max_endpoint<0)
+            {
+                max_endpoint=0;
+            }
+        }
+        return max;
+        
+    }
+    
+}
