@@ -1,0 +1,50 @@
+// Space bachata hai
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length())
+        {
+            return false;
+        }
+        HashMap<Character, Integer>map1= makeover(s);
+         // HashMap<Character, Integer>map2= makeover(t);
+        for(int i=0;i<t.length();i++)
+        {
+            Character ch=t.charAt(i);
+
+            if(!map1.containsKey(ch))
+            {
+                return false;
+            }
+            int currvalue=map1.get(ch);
+            map1.put(ch, currvalue-1);
+
+        }
+        for(Integer i : map1.values())
+        {
+            if(i!=0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    static HashMap<Character, Integer> makeover(String s){
+        HashMap<Character,Integer>map1=new HashMap<Character, Integer>();
+
+        for(int i=0;i<s.length();i++)
+        {
+            Character ch=s.charAt(i);
+            if(!map1.containsKey(ch))
+            {
+                map1.put(ch, 1);
+            }
+            else 
+            {
+               int currFreq=map1.get(ch);
+               map1.put(ch,currFreq+1);
+            }
+        }  
+        return map1;
+    }
+}
