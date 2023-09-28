@@ -1,0 +1,17 @@
+
+class Solution {
+    public static void convertToWave(int n, int[] a) {
+        // code here
+        for(int i = 0; i < n; i += 2) { // Fix the increment operator
+            if (i + 1 < n) { // Check if there's an element to swap with
+                swap(a, i, i + 1);
+            }
+        }
+    }
+
+    public static void swap(int arr[], int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+}
