@@ -1,0 +1,16 @@
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int count[] = new int[102]; // Assuming the maximum value of num is 100
+        
+        for (int num : nums) {
+            count[num]++;
+        }
+        
+        int total = 0;
+        for (int c : count) {
+            total += (c * (c - 1)) / 2;
+        }
+        
+        return total;
+    }
+}
